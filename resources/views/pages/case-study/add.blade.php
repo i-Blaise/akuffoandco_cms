@@ -23,6 +23,10 @@
   {{-- @toastifyCss --}}
     {{-- TinyMCE head  --}}
   <x-head.tinymce-config/>
+
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 </head>
 
 <body>
@@ -44,12 +48,13 @@
                   <p class="card-description">
                     Publish or Add
                   </p>
-                  <form class="forms-sample">
+                  <form class="forms-sample" action="{{ route('case-study.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
                       <label>Image Upload</label>
                       <input type="file" name="image" class="file-upload-default">
                       <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                        <input type="text" name="image" class="form-control file-upload-info" disabled placeholder="Upload Image">
                         <span class="input-group-append">
                           <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                         </span>
@@ -57,11 +62,11 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName1">Case Study Title</label>
-                      <textarea class="form-control" id="myeditorinstance-caption" name="caption" placeholder="Title"></textarea>
+                      <textarea class="form-control" id="myeditorinstance-caption" name="title" placeholder="Title"></textarea>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName1">Excerpt</label>
-                      <textarea class="form-control" id="myeditorinstance-excerpt" name="excerpt" placeholder="Excerpt"></textarea>
+                      <textarea class="form-control" id="myeditorinstance-excerpt" name="summary" placeholder="Excerpt"></textarea>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName1">Body</label>

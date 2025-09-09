@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+    @if(session('success'))
+        toastr.success("{{ session('success') }}");
+    @endif
+
+    @if(session('error'))
+        toastr.error("{{ session('error') }}");
+    @endif
+
+    @if(session('warning'))
+        toastr.warning("{{ session('warning') }}");
+    @endif
+
+    @if(session('info'))
+        toastr.info("{{ session('info') }}");
+    @endif
+</script>
+
+</head>
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.png" alt="logo"/></a>
@@ -43,3 +73,4 @@
         </button>
       </div>
     </nav>
+</html>

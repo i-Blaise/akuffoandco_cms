@@ -59,102 +59,51 @@
                         </tr>
                       </thead>
                       <tbody>
+                        @forelse ($caseStudies as $index => $caseStudy)
                         <tr>
                           <td class="py-1">
-                            1
+                            {{ $index + 1 }}
                           </td>
                           <td>
-                            This and That case study
+                            {{ $caseStudy->title }}
                           </td>
                           <td>
-                            May 15, 2015
+                            {{ $caseStudy->created_at->format('F j, Y') }}
                           </td>
                           <td>
-                            <label class="badge badge-danger">Not Published</label>
+                            <label class="badge {{ $caseStudy->published ? 'badge-success' : 'badge-danger' }}">
+                                {{ $caseStudy->published ? 'Published' : 'Not Published' }}
+                            </label>
                           </td>
                           <td>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Dropdown</button>
                                 <div class="dropdown-menu">
-                                <a class="dropdown-item">Go back</a>
-                                <a class="dropdown-item">Delete</a>
-                                <a class="dropdown-item">Swap</a>
+                                    <form action="{{ route('case-studies.toggle', $caseStudy->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="dropdown-item">
+                                            {{ $caseStudy->published ? 'Unpublish' : 'Publish' }}
+                                        </button>
+                                    </form>
+                                    <a class="dropdown-item" href="{{ url('edit-case-study/' . $caseStudy->id) }}">Edit</a>
+                                    <form action="{{ route('case-studies.destroy', $caseStudy->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="dropdown-item"
+                                            onclick="return confirm('Are you sure you want to delete this case study?');">
+                                            Delete
+                                        </button>
+                                    </form>
                                 </div>
                           </div>
                           </td>
                         </tr>
-                        <tr>
-                          <td class="py-1">
-                            2
-                          </td>
-                          <td>
-                            Another Case Study
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                          <td>
-                            <label class="badge badge-success">Completed</label>
-                          </td>
-                          <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Dropdown</button>
-                                <div class="dropdown-menu">
-                                <a class="dropdown-item">Go back</a>
-                                <a class="dropdown-item">Delete</a>
-                                <a class="dropdown-item">Swap</a>
-                                </div>
-                          </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            2
-                          </td>
-                          <td>
-                            Another Case Study
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                          <td>
-                            <label class="badge badge-success">Completed</label>
-                          </td>
-                          <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Dropdown</button>
-                                <div class="dropdown-menu">
-                                <a class="dropdown-item">Go back</a>
-                                <a class="dropdown-item">Delete</a>
-                                <a class="dropdown-item">Swap</a>
-                                </div>
-                          </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="py-1">
-                            2
-                          </td>
-                          <td>
-                            Another Case Study
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                          <td>
-                            <label class="badge badge-success">Completed</label>
-                          </td>
-                          <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Dropdown</button>
-                                <div class="dropdown-menu">
-                                <a class="dropdown-item">Go back</a>
-                                <a class="dropdown-item">Delete</a>
-                                <a class="dropdown-item">Swap</a>
-                                </div>
-                          </div>
-                          </td>
-                        </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5" class="text-center">No case studies found.</td>
+                            </tr>
+                        @endforelse
                       </tbody>
                     </table>
                   </div>

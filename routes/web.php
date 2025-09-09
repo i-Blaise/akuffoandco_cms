@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-
+use App\Http\Controllers\CaseStudyController;
+use Illuminate\Support\Facades\Auth;
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', fn() => view('auth.login'))->name('login');
@@ -22,13 +23,26 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('index');
     })->name('dashboard');
-    Route::get('add-case-study', function () {
-        return view('pages.case-study.add');
-    })->name('add-case-study');
 
-    Route::get('list-case-studies', function () {
-        return view('pages.case-study.list');
-    })->name('list-case-studies');
+    Route::get('add-case-study', [CaseStudyController::class, 'create'])->name('add-case-study');
+
+    Route::post('case-study/store', [CaseStudyController::class, 'store'])->name('case-study.store');
+
+    Route::get('list-case-studies', [CaseStudyController::class, 'index'])->name('list-case-studies');
+
+    Route::patch('/case-studies/{caseStudy}/toggle', [CaseStudyController::class, 'togglePublish'])
+     ->name('case-studies.toggle');
+
+    Route::delete('/case-studies/{caseStudy}', [CaseStudyController::class, 'destroy'])
+        ->name('case-studies.destroy');
+
+    Route::get('edit-case-study/{id}', [CaseStudyController::class, 'edit'])->name('edit-case-study');
+
+    Route::post('update-case-study/{id}', [CaseStudyController::class, 'update'])->name('update-case-study');
+
+    // Route::get('list-case-studies', function () {
+    //     return view('pages.case-study.list');
+    // })->name('list-case-studies');
 
     Route::get('edit-case-study', function () {
         return view('pages.case-study.edit');
@@ -44,6 +58,9 @@ Route::middleware('auth')->group(function () {
     })->name('list-blog-posts');
 });
 
+Route::get('/test-auth', function () {
+    return Auth::check() ? Auth::user()->name : 'No user logged in';
+});
 
 
 // Route::get('edit-blog-post', function () {

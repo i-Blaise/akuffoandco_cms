@@ -44,13 +44,14 @@
                   <p class="card-description">
                     Edit and Update
                   </p>
-                  <form class="forms-sample">
+                    <form class="forms-sample" action="{{ route('update-case-study', $caseStudy->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Image Upload</label>
                         <div class="col-sm-4">
                             <input type="file" name="image" class="file-upload-default">
                             <div class="input-group">
-                                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                <input type="text" name="image" class="form-control file-upload-info" disabled placeholder="Upload Image">
                                 <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                                 </span>
@@ -58,33 +59,54 @@
                         </div>
                         <div class="col-sm-6">
                             <div style="height: 200px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                                <img src="{{ asset('images/auth/login-bg.jpg') }}" alt="Case Study Image" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                {{-- <img src="{{ asset('images/auth/login-bg.jpg') }}" alt="Case Study Image" style="max-width: 100%; max-height: 100%; object-fit: contain;"> --}}
+
+
+                                @if($caseStudy->image)
+                                    <img src="{{ asset($caseStudy->image) }}"
+                                        alt="Case Study Image"
+                                        width="150" class="img-thumbnail mb-2">
+                                @else
+                                    <p>No image uploaded</p>
+                                @endif
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName1">Case Study Title</label>
-                      <textarea class="form-control" id="myeditorinstance-caption" name="caption" placeholder="TItle"></textarea>
+                      <textarea class="form-control" id="myeditorinstance-caption" name="title" placeholder="Title">{{ $caseStudy->title }}</textarea>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName1">Excerpt</label>
-                      <textarea class="form-control" id="myeditorinstance-excerpt" name="excerpt" placeholder="Excerpt"></textarea>
+                      <textarea class="form-control" id="myeditorinstance-excerpt" name="summary" placeholder="Excerpt">{{ $caseStudy->summary }}</textarea>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputName1">Body</label>
-                      <textarea class="form-control" id="myeditorinstance-body" name="body" placeholder="Body"></textarea>
+                      <textarea class="form-control" id="myeditorinstance-body" name="body" placeholder="Body">{{ $caseStudy->body }}</textarea>
                     </div>
                     <div class="form-group">
-                      <label for="exampleSelectGender">Category</label>
-                        <select class="form-control" name="category" id="exampleSelectGender">
-                          <option value="litigation">Litigation & Publication</option>
-                          <option value="due_diligence">Due Diligence</option>
-                          <option value="real_estate">Real Estate</option>
-                          <option value="finance">Finance</option>
-                          <option value="commercial">Commercial</option>
-                          <option value="properties">Properties</option>
-                        </select>
-                      </div>
+                    <label for="exampleSelectGender">Category</label>
+                    <select class="form-control" name="category" id="exampleSelectGender">
+                        <option value="litigation" {{ $caseStudy->category === 'litigation' ? 'selected' : '' }}>
+                            Litigation & Publication
+                        </option>
+                        <option value="due_diligence" {{ $caseStudy->category === 'due_diligence' ? 'selected' : '' }}>
+                            Due Diligence
+                        </option>
+                        <option value="real_estate" {{ $caseStudy->category === 'real_estate' ? 'selected' : '' }}>
+                            Real Estate
+                        </option>
+                        <option value="finance" {{ $caseStudy->category === 'finance' ? 'selected' : '' }}>
+                            Finance
+                        </option>
+                        <option value="commercial" {{ $caseStudy->category === 'commercial' ? 'selected' : '' }}>
+                            Commercial
+                        </option>
+                        <option value="properties" {{ $caseStudy->category === 'properties' ? 'selected' : '' }}>
+                            Properties
+                        </option>
+                    </select>
+                    </div>
                     <button type="submit" class="btn btn-primary mr-2">Update</button>
                     <button class="btn btn-light">Cancel</button>
                   </form>
