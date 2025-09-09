@@ -77,7 +77,7 @@
                           </td>
                           <td>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Dropdown</button>
+                                <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Actions</button>
                                 <div class="dropdown-menu">
                                     <form action="{{ route('case-studies.toggle', $caseStudy->id) }}" method="POST" style="display:inline;">
                                         @csrf
