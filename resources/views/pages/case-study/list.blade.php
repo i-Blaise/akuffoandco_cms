@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>KA - CMS</title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../vendors/feather/feather.css">
+  <link rel="stylesheet" href="../../vendors/base/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="../../images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
+    @include('partials.navbar')
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+
+      <!-- partial:../../partials/_sidebar.html -->
+      @include('partials.sidebar')
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">list of Case Studies</h4>
+                  <p class="card-description">
+                    All Case Studies
+                  </p>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            ID
+                          </th>
+                          <th>
+                            Title
+                          </th>
+                          <th>
+                            Date Created
+                          </th>
+                          <th>
+                            Status
+                          </th>
+                          <th>
+                            Action
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="py-1">
+                            1
+                          </td>
+                          <td>
+                            This and That case study
+                          </td>
+                          <td>
+                            May 15, 2015
+                          </td>
+                          <td>
+                            <label class="badge badge-danger">Not Published</label>
+                          </td>
+                          <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Dropdown</button>
+                                <div class="dropdown-menu">
+                                <a class="dropdown-item">Go back</a>
+                                <a class="dropdown-item">Delete</a>
+                                <a class="dropdown-item">Swap</a>
+                                </div>
+                          </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="py-1">
+                            2
+                          </td>
+                          <td>
+                            Another Case Study
+                          </td>
+                          <td>
+                            May 15, 2015
+                          </td>
+                          <td>
+                            <label class="badge badge-success">Completed</label>
+                          </td>
+                          <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Dropdown</button>
+                                <div class="dropdown-menu">
+                                <a class="dropdown-item">Go back</a>
+                                <a class="dropdown-item">Delete</a>
+                                <a class="dropdown-item">Swap</a>
+                                </div>
+                          </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="py-1">
+                            2
+                          </td>
+                          <td>
+                            Another Case Study
+                          </td>
+                          <td>
+                            May 15, 2015
+                          </td>
+                          <td>
+                            <label class="badge badge-success">Completed</label>
+                          </td>
+                          <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Dropdown</button>
+                                <div class="dropdown-menu">
+                                <a class="dropdown-item">Go back</a>
+                                <a class="dropdown-item">Delete</a>
+                                <a class="dropdown-item">Swap</a>
+                                </div>
+                          </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="py-1">
+                            2
+                          </td>
+                          <td>
+                            Another Case Study
+                          </td>
+                          <td>
+                            May 15, 2015
+                          </td>
+                          <td>
+                            <label class="badge badge-success">Completed</label>
+                          </td>
+                          <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Dropdown</button>
+                                <div class="dropdown-menu">
+                                <a class="dropdown-item">Go back</a>
+                                <a class="dropdown-item">Delete</a>
+                                <a class="dropdown-item">Swap</a>
+                                </div>
+                          </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        @include('partials.footer')
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- base:js -->
+  <script src="../../vendors/base/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="../../js/off-canvas.js"></script>
+  <script src="../../js/hoverable-collapse.js"></script>
+  <script src="../../js/template.js"></script>
+  <!-- endinject -->
+  <!-- plugin js for this page -->
+  <!-- End plugin js for this page -->
+  <!-- Custom js for this page-->
+  <!-- End custom js for this page-->
+</body>
+
+</html>
