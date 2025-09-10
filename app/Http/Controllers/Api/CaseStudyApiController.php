@@ -14,15 +14,14 @@ class CaseStudyApiController extends Controller
         $perPage   = (int) $request->get('per_page', 10);
         $search    = $request->get('search');
         $category  = $request->get('category');
-        $published = $request->boolean('published', null);
 
         $query = CaseStudy::query()
+            ->where('published', true) // ✅ only published case studies
             ->when($search, fn($q) =>
                 $q->where(fn($x) => $x->where('title', 'like', "%{$search}%")
-                                     ->orWhere('summary', 'like', "%{$search}%")
-                                     ->orWhere('content', 'like', "%{$search}%")))
+                                    ->orWhere('summary', 'like', "%{$search}%")
+                                    ->orWhere('content', 'like', "%{$search}%")))
             ->when($category, fn($q) => $q->where('category', $category))
-            ->when(!is_null($published), fn($q) => $q->where('published', $published))
             ->latest();
 
         return CaseStudyResource::collection($query->paginate($perPage));
