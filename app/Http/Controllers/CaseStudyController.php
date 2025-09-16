@@ -44,7 +44,7 @@ class CaseStudyController extends Controller
             'category' => 'required|string|max:255'
         ]);
 
-        $validatedData['slug'] = Str::slug($validatedData['title']);
+        $validatedData['slug'] = Str::slug($validatedData['title']).'-'.rand();
         $validatedData['author'] = Auth::user()->name;
 
         // dd($validatedData);

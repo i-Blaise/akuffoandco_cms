@@ -44,7 +44,8 @@
                   <p class="card-description">
                     Publish or Add
                   </p>
-                  <form class="forms-sample">
+                  <form class="forms-sample" action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
                       <label>Image Upload</label>
                       <input type="file" name="image" class="file-upload-default">

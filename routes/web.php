@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CaseStudyController;
 use Illuminate\Support\Facades\Auth;
 
@@ -57,9 +58,16 @@ Route::middleware('auth')->group(function () {
         return view('pages.blog.add');
     })->name('add-blog-post');
 
-    Route::get('list-blog-posts', function () {
-        return view('pages.blog.list');
-    })->name('list-blog-posts');
+
+
+
+    // Blogs Route
+
+    Route::get('list-blog-posts', [BlogController::class, 'index'])->name('list-blog-posts');
+
+    Route::get('add-blog-post', [BlogController::class, 'create'])->name('add-blog-post');
+
+    Route::post('blog/store', [BlogController::class, 'store'])->name('blog.store');
 });
 
 Route::get('/test-auth', function () {
