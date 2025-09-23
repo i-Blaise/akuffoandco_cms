@@ -25,7 +25,7 @@ class LoginController extends Controller
         }
 
         $request->session()->regenerate(); // prevent fixation
-        return redirect()->intended(route('dashboard'));
+        return redirect()->intended(route('add-case-study'));
     }
 
     public function destroy(Request $request)

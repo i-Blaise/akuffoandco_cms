@@ -1,22 +1,22 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="user-profile">
           <div class="user-image">
-            <img src="images/faces/face28.png">
+            <img src="images/faces/default.jpg">
           </div>
           <div class="user-name">
-              Edward Spencer
+              {{ auth()->user()->name }}
           </div>
           <div class="user-designation">
-              Developer
+              {{-- Admin --}}
           </div>
         </div>
         <ul class="nav">
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link" href="index.html">
               <i class="icon-box menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#case-study" aria-expanded="false" aria-controls="case-study">
               <i class="icon-disc menu-icon"></i>

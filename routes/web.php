@@ -21,13 +21,13 @@ Route::post('/logout', [LoginController::class, 'destroy'])
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('index');
-    })->name('dashboard');
+    // Route::get('add-case-study', function () {
+    //     return view('index');
+    // })->name('index');
 
-    Route::get('/', function () {
-        return view('index');
-    });
+    // Route::get('add-case-study', function () {
+    //     return view('index');
+    // });
 
     Route::get('add-case-study', [CaseStudyController::class, 'create'])->name('add-case-study');
 
