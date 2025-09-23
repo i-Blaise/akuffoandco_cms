@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
     //     return view('index');
     // });
 
+    Route::get('/', [CaseStudyController::class, 'create'])->name('add-case-study');
+
     Route::get('add-case-study', [CaseStudyController::class, 'create'])->name('add-case-study');
 
     Route::post('case-study/store', [CaseStudyController::class, 'store'])->name('case-study.store');
