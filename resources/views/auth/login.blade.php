@@ -64,13 +64,13 @@
                       Keep me signed in
                     </label>
                   </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
+                  {{-- <a href="#" class="auth-link text-black">Forgot password?</a> --}}
                 </div>
                 <div class="my-3">
                   <button class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" type="submit">LOGIN</button>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Don't have an account? <a href="register-2.html" class="text-primary">Create</a>
+                  Don't have an account? <a href="#" class="text-primary">Contact Admin at !D</a>
                 </div>
               </form>
             </div>
