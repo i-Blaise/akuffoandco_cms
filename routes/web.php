@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     //     return view('index');
     // });
 
-    Route::get('/', [CaseStudyController::class, 'create'])->name('add-case-study');
+    // Route::get('/', [CaseStudyController::class, 'create'])->name('add-case-study');
 
     Route::get('add-case-study', [CaseStudyController::class, 'create'])->name('add-case-study');
 
