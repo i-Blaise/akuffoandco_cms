@@ -56,9 +56,9 @@ Route::middleware('auth')->group(function () {
     // })->name('edit-case-study');
 
 
-    Route::get('add-blog-post', function () {
-        return view('pages.blog.add');
-    })->name('add-blog-post');
+    // Route::get('add-blog-post', function () {
+    //     return view('pages.blog.add');
+    // })->name('add-blog-post');
 
 
 
