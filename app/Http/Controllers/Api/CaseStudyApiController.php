@@ -27,7 +27,7 @@ class CaseStudyApiController extends Controller
     //     return CaseStudyResource::collection($query->paginate($perPage));
     // }
 
-        public function index(Request $request)
+    public function index(Request $request)
     {
         $search   = $request->get('search');
         $category = $request->get('category');
