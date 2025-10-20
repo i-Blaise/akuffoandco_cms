@@ -21,15 +21,21 @@ class CaseStudyController extends Controller
     }
 
 
-        public function uploadProfileImage($imageFile): string
-    {
-        //Move Uploaded File to public folder
-        $destinationPath = 'storage/case_study_images/';
-        $hashed_image_name = $imageFile->hashName();
-        $profile_img_path = $destinationPath.$hashed_image_name;
-        $imageFile->move(public_path($destinationPath), $hashed_image_name);
+    //     public function uploadProfileImage($imageFile): string
+    // {
+    //     //Move Uploaded File to public folder
+    //     $destinationPath = 'storage/case_study_images/';
+    //     $hashed_image_name = $imageFile->hashName();
+    //     $profile_img_path = $destinationPath.$hashed_image_name;
+    //     $imageFile->move(public_path($destinationPath), $hashed_image_name);
 
-        return $profile_img_path;
+    //     return $profile_img_path;
+    // }
+
+    public function uploadProfileImage($imageFile): string
+    {
+        $path = $imageFile->store('case_study_images', 'public');
+        return 'storage/' . $path;
     }
 
     public function store(Request $request)
@@ -43,6 +49,7 @@ class CaseStudyController extends Controller
             'body' => 'required|string',
             'category' => 'required|string|max:255'
         ]);
+
 
         $validatedData['slug'] = Str::slug($validatedData['title']).'-'.rand();
         $validatedData['author'] = Auth::user()->name;

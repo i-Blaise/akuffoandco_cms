@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="user-profile">
           <div class="user-image">
-            <img src="images/faces/default.jpg">
+            <img src="../../images/faces/default.jpg">
           </div>
           <div class="user-name">
               {{ auth()->user()->name }}
@@ -26,7 +26,7 @@
             <div class="collapse" id="case-study">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href={{ route('add-case-study') }}>Add Case Study</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('list-case-studies') }}">List of Case Studies</a></li>
+                <li class="nav-item"> <a class="nav-link" href={{ route('list-case-studies') }}>List of Case Studies</a></li>
               </ul>
             </div>
           </li>
@@ -38,8 +38,8 @@
             </a>
             <div class="collapse" id="blog">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('add-blog-post') }}">Add Blog</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('list-blog-posts') }}">List of Blogs</a></li>
+                <li class="nav-item"> <a class="nav-link" href={{ route('add-blog-post') }}>Add Blog</a></li>
+                <li class="nav-item"> <a class="nav-link" href={{ route('list-blog-posts') }}>List of Blogs</a></li>
               </ul>
             </div>
           </li>

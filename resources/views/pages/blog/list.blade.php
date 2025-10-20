@@ -79,15 +79,15 @@
                             <div class="btn-group">
                                 <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Actions</button>
                                 <div class="dropdown-menu">
-                                    <form action="{{ route('case-studies.toggle', $blog->id) }}" method="POST" style="display:inline;">
+                                    <form action="{{ route('blogs.toggle', $blog->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('PATCH')
                                         <button type="submit" class="dropdown-item">
                                             {{ $blog->published ? 'Unpublish' : 'Publish' }}
                                         </button>
                                     </form>
-                                    <a class="dropdown-item" href="{{ url('edit-case-study/' . $blog->id) }}">Edit</a>
-                                    <form action="{{ route('case-studies.destroy', $blog->id) }}" method="POST" style="display:inline;">
+                                    <a class="dropdown-item" href="{{ url('edit-blog-post/' . $blog->id) }}">Edit</a>
+                                    <form action="{{ route('blogs.destroy', $blog->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="dropdown-item"

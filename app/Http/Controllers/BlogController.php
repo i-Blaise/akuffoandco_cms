@@ -21,10 +21,10 @@ class BlogController extends Controller
     }
 
 
-            public function uploadProfileImage($imageFile): string
+    public function uploadProfileImage($imageFile): string
     {
         //Move Uploaded File to public folder
-        $destinationPath = 'storage/case_study_images/';
+        $destinationPath = 'storage/blog_images/';
         $hashed_image_name = $imageFile->hashName();
         $profile_img_path = $destinationPath.$hashed_image_name;
         $imageFile->move(public_path($destinationPath), $hashed_image_name);
@@ -37,7 +37,7 @@ class BlogController extends Controller
         // dd('here');
         // Validate the request data
         $validatedData = $request->validate([
-            'image' => 'required|image|max:2048',
+            'main_image' => 'required|image|max:2048',
             'title' => 'required|string|max:255',
             'summary' => 'required|string',
             'body' => 'required|string',
@@ -46,19 +46,75 @@ class BlogController extends Controller
 
         $validatedData['slug'] = Str::slug($validatedData['title']).'-'.rand();
         $validatedData['author'] = Auth::user()->name;
-
         // dd($validatedData);
+
 
         // Handle file upload
 
-        if(!is_null($request->file('image')))
+        if(!is_null($request->file('main_image')))
         {
-            $imagePath = $this->uploadProfileImage($request->file('image'));
+            $imagePath = $this->uploadProfileImage($request->file('main_image'));
         }
-        $validatedData['image'] = $imagePath;
+        $validatedData['main_image'] = $imagePath ? : null;
         // Create a new blog record
         Blog::create($validatedData);
 
         return redirect()->route('list-blog-posts')->with('success', 'Blog post created successfully.');
     }
+
+
+    public function edit($id)
+    {
+        $blog = Blog::findOrFail($id);
+        return view('pages.blog.edit', compact('blog'));
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        // dd('here');
+        $blog = Blog::findOrFail($id);
+
+        // Validate the request data
+        $validatedData = $request->validate([
+            'main_image' => 'sometimes|image|max:2048',
+            'title' => 'required|string|max:255',
+            'summary' => 'required|string',
+            'body' => 'required|string',
+            'category' => 'required|string|max:255'
+        ]);
+        // Handle file upload
+        if(!is_null($request->file('main_image')))
+        {
+            $imagePath = $this->uploadProfileImage($request->file('main_image'));
+            $validatedData['main_image'] = $imagePath;
+        }
+
+        // Update the blog record
+        $blog->update($validatedData);
+
+        return redirect()->route('list-blog-posts')->with('success', 'Blog post updated successfully.');
+    }
+
+
+        public function togglePublish(Blog $blog)
+    {
+        // Flip the published value (if boolean)
+        $blog->published = ! $blog->published;
+
+        $blog->save();
+
+        return redirect()->route('list-blog-posts')
+                        ->with('success', 'Blog post ' . ($blog->published ? 'published' : 'unpublished') . ' successfully!');
+    }
+
+
+    public function destroy($id)
+    {
+        $blog = Blog::findOrFail($id);
+        $blog->delete();
+
+        return redirect()->route('list-blog-posts')->with('success', 'Blog post deleted successfully.');
+    }
+
 }

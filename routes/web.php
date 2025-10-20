@@ -51,9 +51,9 @@ Route::middleware('auth')->group(function () {
     //     return view('pages.case-study.list');
     // })->name('list-case-studies');
 
-    Route::get('edit-case-study', function () {
-        return view('pages.case-study.edit');
-    })->name('edit-case-study');
+    // Route::get('edit-case-study', function () {
+    //     return view('pages.case-study.edit');
+    // })->name('edit-case-study');
 
 
     Route::get('add-blog-post', function () {
@@ -70,6 +70,16 @@ Route::middleware('auth')->group(function () {
     Route::get('add-blog-post', [BlogController::class, 'create'])->name('add-blog-post');
 
     Route::post('blog/store', [BlogController::class, 'store'])->name('blog.store');
+
+    Route::get('edit-blog-post/{id}', [BlogController::class, 'edit'])->name('edit-blog-post');
+
+    Route::post('update-blog-post/{id}', [BlogController::class, 'update'])->name('update-blog-post');
+
+    Route::delete('/blogs/{blog}', [BlogController::class, 'destroy'])
+        ->name('blogs.destroy');
+
+    Route::patch('/blogs/{blog}/toggle', [BlogController::class, 'togglePublish'])
+     ->name('blogs.toggle');
 });
 
 Route::get('/test-auth', function () {
