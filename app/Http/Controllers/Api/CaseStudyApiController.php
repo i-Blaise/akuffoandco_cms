@@ -47,10 +47,12 @@ class CaseStudyApiController extends Controller
         // rename fields for JSON output
         $data = $caseStudies->map(fn($cs) => [
             'id'          => $cs->id,
-            'title'  => $cs->title,
-            'slug'   => $cs->slug,
-            'excerpt'=> $cs->summary,
-            'body'   => $cs->body,
+            'image'       => $cs->image,
+            'image_url'   => $cs->image ? asset($cs->image) : null,
+            'title'       => $cs->title,
+            'slug'        => $cs->slug,
+            'excerpt'     => $cs->summary,
+            'body'        => $cs->body,
             'category'    => $cs->category,
             'published_on'=> $cs->created_at->toDateString(),
             'author_name' => $cs->author_name ?? 'Admin',

@@ -27,14 +27,16 @@ class BlogApiController extends Controller
 
         // rename fields for JSON output
         $data = $caseStudies->map(fn($cs) => [
-            'id'          => $cs->id,
-            'title'  => $cs->title,
-            'author_name' => $cs->author_name ?? 'Admin',
-            'slug'   => $cs->slug,
-            'excerpt'=> $cs->summary,
-            'body'   => $cs->body,
-            'category'    => $cs->category,
-            'published_on'=> $cs->created_at->toDateString(),
+            'id'           => $cs->id,
+            'image'        => $cs->main_image,
+            'image_url'    => $cs->main_image ? asset($cs->main_image) : null,
+            'title'        => $cs->title,
+            'author_name'  => $cs->author_name ?? 'Admin',
+            'slug'         => $cs->slug,
+            'excerpt'      => $cs->summary,
+            'body'         => $cs->body,
+            'category'     => $cs->category,
+            'published_on' => $cs->created_at->toDateString(),
         ]);
 
         return response()->json($data);
