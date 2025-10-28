@@ -40,7 +40,7 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Edit Case Study</h4>
+                  <h4 class="card-title">Edit Blog Post</h4>
                   <p class="card-description">
                     Edit and Update
                   </p>
@@ -87,23 +87,20 @@
                     <div class="form-group">
                     <label for="exampleSelectGender">Category</label>
                     <select class="form-control" name="category" id="exampleSelectGender">
-                        <option value="litigation" {{ $blog->category === 'litigation' ? 'selected' : '' }}>
-                            Litigation & Publication
+                        <option value="bankruptcy" {{ $blog->category === 'bankruptcy' ? 'selected' : '' }}>
+                            Bankruptcy
                         </option>
-                        <option value="due_diligence" {{ $blog->category === 'due_diligence' ? 'selected' : '' }}>
-                            Due Diligence
+                        <option value="world" {{ $blog->category === 'world' ? 'selected' : '' }}>
+                            World
                         </option>
-                        <option value="real_estate" {{ $blog->category === 'real_estate' ? 'selected' : '' }}>
-                            Real Estate
+                        <option value="justice_law" {{ $blog->category === 'justice_law' ? 'selected' : '' }}>
+                            Justice Law
                         </option>
-                        <option value="finance" {{ $blog->category === 'finance' ? 'selected' : '' }}>
-                            Finance
+                        <option value="land_law" {{ $blog->category === 'land_law' ? 'selected' : '' }}>
+                            Land Law
                         </option>
-                        <option value="commercial" {{ $blog->category === 'commercial' ? 'selected' : '' }}>
-                            Commercial
-                        </option>
-                        <option value="properties" {{ $blog->category === 'properties' ? 'selected' : '' }}>
-                            Properties
+                        <option value="political_independence" {{ $blog->category === 'political_independence' ? 'selected' : '' }}>
+                            Political Independence
                         </option>
                     </select>
                     </div>
