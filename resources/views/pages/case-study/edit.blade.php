@@ -107,6 +107,10 @@
                         </option>
                     </select>
                     </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Author Name</label>
+                      <input type="text" class="form-control" name="author_name" placeholder="Author Name" value="{{ $caseStudy->author_name }}">
+                    </div>
                     <button type="submit" class="btn btn-primary mr-2">Update</button>
                     <button class="btn btn-light">Cancel</button>
                   </form>

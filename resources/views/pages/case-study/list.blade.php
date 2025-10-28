@@ -48,6 +48,9 @@
                             Title
                           </th>
                           <th>
+                            Author Name
+                          </th>
+                          <th>
                             Date Created
                           </th>
                           <th>
@@ -66,6 +69,9 @@
                           </td>
                           <td>
                             {{ $caseStudy->title }}
+                          </td>
+                          <td>
+                            {{ $caseStudy->author_name ?? 'Admin' }}
                           </td>
                           <td>
                             {{ $caseStudy->created_at->format('F j, Y') }}

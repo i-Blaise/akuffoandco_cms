@@ -12,6 +12,7 @@ class CaseStudy extends Model
         'image',
         'slug',
         'title',
+        'author_name',
         'summary',
         'body',
         'author',

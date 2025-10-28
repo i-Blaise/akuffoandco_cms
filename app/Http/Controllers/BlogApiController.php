@@ -29,6 +29,7 @@ class BlogApiController extends Controller
         $data = $caseStudies->map(fn($cs) => [
             'id'          => $cs->id,
             'title'  => $cs->title,
+            'author_name' => $cs->author_name ?? 'Admin',
             'slug'   => $cs->slug,
             'excerpt'=> $cs->summary,
             'body'   => $cs->body,

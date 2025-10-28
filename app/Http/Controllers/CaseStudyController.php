@@ -45,6 +45,7 @@ class CaseStudyController extends Controller
         $validatedData = $request->validate([
             'image' => 'required|image|max:2048',
             'title' => 'required|string|max:255',
+            'author_name' => 'nullable|string',
             'summary' => 'required|string',
             'body' => 'required|string',
             'category' => 'required|string|max:255'
@@ -84,6 +85,7 @@ class CaseStudyController extends Controller
         $validatedData = $request->validate([
             'image' => 'sometimes|image|max:2048',
             'title' => 'required|string|max:255',
+            'author_name' => 'nullable|string',
             'summary' => 'required|string',
             'body' => 'required|string',
             'category' => 'required|string|max:255'

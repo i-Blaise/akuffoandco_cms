@@ -39,6 +39,7 @@ class BlogController extends Controller
         $validatedData = $request->validate([
             'main_image' => 'required|image|max:2048',
             'title' => 'required|string|max:255',
+            'author_name' => 'nullable|string',
             'summary' => 'required|string',
             'body' => 'required|string',
             'category' => 'required|string|max:255'
@@ -79,6 +80,7 @@ class BlogController extends Controller
         $validatedData = $request->validate([
             'main_image' => 'sometimes|image|max:2048',
             'title' => 'required|string|max:255',
+            'author_name' => 'nullable|string',
             'summary' => 'required|string',
             'body' => 'required|string',
             'category' => 'required|string|max:255'

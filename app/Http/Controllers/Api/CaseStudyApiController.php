@@ -53,6 +53,7 @@ class CaseStudyApiController extends Controller
             'body'   => $cs->body,
             'category'    => $cs->category,
             'published_on'=> $cs->created_at->toDateString(),
+            'author_name' => $cs->author_name ?? 'Admin',
         ]);
 
         return response()->json($data);

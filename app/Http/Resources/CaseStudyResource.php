@@ -24,7 +24,7 @@ class CaseStudyResource extends JsonResource
             'content'    => $this->content,
             'category'   => $this->category,
             'published'  => (bool) $this->published,
-            'author'     => $this->author,
+            'author_name'     => $this->author_name ?? 'Admin',
             'image'      => $this->image,
             'image_url'  => $this->image ? asset($this->image) : null,
             'created_at' => optional($this->created_at)->toIso8601String(),

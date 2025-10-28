@@ -22,7 +22,7 @@ class BlogResource extends JsonResource
             'content'    => $this->content,
             'category'   => $this->category,
             'published'  => (bool) $this->published,
-            'author'     => $this->author,
+            'author_name'     => $this->author_name ?? 'Admin',
             'image'      => $this->main_image,
             'image_url'  => $this->main_image ? asset($this->main_image) : null,
             'created_at' => optional($this->created_at)->toIso8601String(),
