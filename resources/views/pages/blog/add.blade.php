@@ -71,12 +71,11 @@
                     <div class="form-group">
                       <label for="exampleSelectGender">Category</label>
                         <select class="form-control" name="category" id="exampleSelectGender">
-                          <option value="litigation">Litigation & Publication</option>
-                          <option value="due_diligence">Due Diligence</option>
-                          <option value="real_estate">Real Estate</option>
-                          <option value="finance">Finance</option>
-                          <option value="commercial">Commercial</option>
-                          <option value="properties">Properties</option>
+                          <option value="bankruptcy">Bankruptcy</option>
+                          <option value="world">World</option>
+                          <option value="justice_law">Justice Law</option>
+                          <option value="land_law">Land Law</option>
+                          <option value="political_independence">Political Independence</option>
                         </select>
                       </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
