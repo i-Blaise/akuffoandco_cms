@@ -19,7 +19,7 @@ class BlogResource extends JsonResource
             'title'      => $this->title,
             'slug'       => $this->slug,
             'summary'    => $this->summary,
-            'content'    => $this->content,
+            'content'    => $this->body,
             'category'   => $this->category,
             'published'  => (bool) $this->published,
             'author_name'     => $this->author_name ?? 'Admin',
