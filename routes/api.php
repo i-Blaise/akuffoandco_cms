@@ -16,4 +16,4 @@ Route::get('case-studies/{caseStudy}', [CaseStudyApiController::class, 'show']);
 
 
 Route::get('blogs', [BlogApiController::class, 'index']);
-Route::get('blogs/{blog}', [BlogApiController::class, 'show']);
+Route::get('blogs/{slug}', [BlogApiController::class, 'show']);

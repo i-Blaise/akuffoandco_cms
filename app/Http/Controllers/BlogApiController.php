@@ -42,8 +42,9 @@ class BlogApiController extends Controller
         return response()->json($data);
     }
 
-    public function show(Blog $blog)
+    public function show($slug)
     {
+        $blog = Blog::where('slug', $slug)->firstOrFail();
         return new BlogResource($blog);
     }
 }

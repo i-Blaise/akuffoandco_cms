@@ -63,8 +63,9 @@ class CaseStudyApiController extends Controller
 
 
     // GET /api/case-studies/{caseStudy}
-    public function show(CaseStudy $caseStudy)
+    public function show($slug)
     {
+        $caseStudy = CaseStudy::where('slug', $slug)->firstOrFail();
         return new CaseStudyResource($caseStudy);
     }
 }
